@@ -1,5 +1,5 @@
 import React from "react";
-import {StyledWrapper} from "~/components/widgets/Misc/MiscWidget.styles";
+import {StyledWrapper} from "~/components/widgets/misc/MiscWidget.styles";
 
 type PropTypes = {
     heading?: string,

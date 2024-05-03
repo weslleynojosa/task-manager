@@ -34,6 +34,9 @@ export const P = styled.p`
   }
 `;
 
+export const Content = styled.div`
+position: relative`
+
 export const List = styled.div`
   display: flex;
   flex-direction: column;

@@ -6,7 +6,6 @@ import { css } from "@emotion/react";
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.2rem;
 
   ${({ className }) =>
     className === "box" &&

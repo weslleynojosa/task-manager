@@ -1,12 +1,6 @@
-import {
-  ActionFunction,
-  ActionFunctionArgs,
-  json,
-  LoaderFunction,
-  redirect,
-} from "@remix-run/node";
-import { Form } from "@remix-run/react";
-import React from "react";
+import { ActionFunction, ActionFunctionArgs, redirect } from "@remix-run/node";
+import { Form, Link } from "@remix-run/react";
+import React, {useCallback, useEffect, useState} from "react";
 import Button from "~/components/button/Button";
 import Activity from "~/components/icons/Activity";
 import Input from "~/components/input/Input";
@@ -17,13 +11,16 @@ import {
   Hint,
   InnerAction,
   Modules,
-  Note, NoteForm,
+  Note,
+  NoteForm,
+  StyledLink,
   StyledWrapper,
   SubTitle,
   Title,
+  TitleInfo,
   WidgetWrapper,
 } from "~/routes/taskItem/TaskItem.styles";
-import MiscWidget from "~/components/widgets/Misc/MiscWidget";
+import MiscWidget from "~/components/widgets/misc/MiscWidget";
 import { getNewTask, updateTaskStatus } from "~/model/tasks";
 import { darkBlue } from "~/theme/colors";
 import { TaskDetails } from "~/types/model.type";
@@ -45,16 +42,20 @@ export const action: ActionFunction = async ({
     result = updateTaskStatus(Number(id), "Escalated");
   }
 
-  return redirect(`/${result?.id}`);
+  return result ? redirect(`/${result?.id}`) : redirect(`/`);
 };
 
 const TaskItem = ({ data }: TaskDetails) => {
+
   return (
     <>
       <Header>
         <Title>
-          <Activity fill={darkBlue} />
-          <p>{`Please check patient's age`}</p>
+          <TitleInfo>
+            <Activity fill={darkBlue} />
+            <p>{`Please check patient's age`}</p>
+          </TitleInfo>
+          <StyledLink to={"/"}>Back to task list</StyledLink>
         </Title>
         <Hint>{`Rule 334: The GOZ 2000 can only be billed from ages 7 to 18. For insured persons under the age of 6, only billable if the 6-year molar erupts prematurely.`}</Hint>
       </Header>
@@ -110,6 +111,7 @@ const TaskItem = ({ data }: TaskDetails) => {
                 type={"submit"}
                 name={"_action"}
                 value={"escalate"}
+                disabled={data.status === "Done"}
               >
                 Escalate
               </Button>

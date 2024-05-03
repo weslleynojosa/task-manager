@@ -27,14 +27,14 @@ const ProfileCard = ({ data } : TaskDetails) => {
         <Input label={"Gender"} value={data.sex} disabled />
         <Input
           label={"Birthdate"}
-          value={data.birthdate ? data.birthdate : data.ocrBirthdate}
+          defaultValue={data.birthdate ? data.birthdate : data.ocrBirthdate}
         />
-        <Input label={"VP-Nr"} value={"01"} disabled />
+        <Input label={"VP-Nr"} defaultValue={"01"} disabled />
       </Section>
       <Section>
-        <Input label={"Telephone Number"} value={data.phone} disabled />
+        <Input label={"Telephone Number"} defaultValue={data.phone} disabled />
       </Section>
-      <Input label={"Address"} value={data.address} disabled />
+      <Input label={"Address"} defaultValue={data.address} disabled />
     </StyledForm>
   );
 };

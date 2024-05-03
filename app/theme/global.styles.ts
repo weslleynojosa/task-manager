@@ -40,12 +40,6 @@ export default css`
     list-style: none;
   }
 
-  img {
-    width: 100%;
-    max-width: 100%;
-    image-rendering: -webkit-optimize-contrast;
-  }
-
   a {
     color: inherit;
     transition: color 0.2s ease;
@@ -81,9 +75,32 @@ export const Main = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1.5rem;
+
+  @media (min-width: 80em) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Container = styled(Wrapper)`
   flex-direction: column;
   overflow: hidden;
+
+  @media (max-width: 64em) {
+    width: 100%;
+  }
+`;
+
+export const WidgetWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 20rem;
+
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 64em) {
+    width: 100%;
+  }
 `;

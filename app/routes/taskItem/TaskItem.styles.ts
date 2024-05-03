@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
-import { Form } from "@remix-run/react";
-import { black, darkBlue, lightBlue } from "~/theme/colors";
+import { Form, Link } from "@remix-run/react";
+import {black, blue, darkBlue, lightBlue, white} from "~/theme/colors";
 import { Wrapper } from "~/theme/global.styles";
 
+export const Content = styled.div`
+  position: relative;
+`;
 export const Modules = styled.div`
   gap: 1.5rem;
   display: flex;
@@ -22,12 +25,32 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+    justify-content: space-between;
+`;
+
+export const TitleInfo = styled.div`
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
   color: ${darkBlue};
 
   & > p {
     font-size: 2.4rem;
     margin: 0 1rem;
   }
+`;
+
+export const StyledLink = styled(Link)`
+    color: ${blue};
+    padding: 0.5rem 1.5rem;
+    background: ${white};
+    border: 1px solid ${blue};
+    border-radius: 0.4rem;
+    
+    :hover {
+        color: ${white};
+        background: ${blue};
+    }
 `;
 
 export const SubTitle = styled.span`
