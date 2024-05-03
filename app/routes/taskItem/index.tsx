@@ -1,6 +1,6 @@
 import { ActionFunction, ActionFunctionArgs, redirect } from "@remix-run/node";
-import { Form, Link } from "@remix-run/react";
-import React, {useCallback, useEffect, useState} from "react";
+import { Form } from "@remix-run/react";
+import React from "react";
 import Button from "~/components/button/Button";
 import Activity from "~/components/icons/Activity";
 import Input from "~/components/input/Input";
@@ -46,7 +46,6 @@ export const action: ActionFunction = async ({
 };
 
 const TaskItem = ({ data }: TaskDetails) => {
-
   return (
     <>
       <Header>

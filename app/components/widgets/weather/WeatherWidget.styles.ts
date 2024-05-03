@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { grey, darkBlue, blue, white } from "~/theme/colors";
+import { grey, blue } from "~/theme/colors";
 import { Wrapper } from "~/theme/global.styles";
 
 export const WeatherWrapper = styled(Wrapper)`

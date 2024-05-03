@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { darkBlue, lightBlue, lightGrey } from "~/theme/colors";
-import { Form } from "@remix-run/react";
+import { darkBlue, lightBlue } from "~/theme/colors";
 
 export const Header = styled.div`
   display: flex;

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import Button from "~/components/button/Button";
-import { blue, grey, lightestGrey, paleWhite, white } from "~/theme/colors";
+import { paleWhite, white } from "~/theme/colors";
 
 export const Container = styled.div`
   display: flex;

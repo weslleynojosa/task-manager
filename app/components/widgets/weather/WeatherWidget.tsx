@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Condition,
   Empty,
@@ -26,16 +26,14 @@ interface WeatherData {
   minTemperature?: number;
 }
 
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather?";
-const apiKey = "1662e45f71e7f241a4fd7c4eb94929ac";
-
 const WeatherWidget = ({ coords }: WeatherWidgetProps) => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
 
-  const fetchWeather = async () => {
+  const fetchWeather = useCallback(async () => {
     try {
+      /* TODO: Find a way to access .env variables since Remix isn't straightforward*/
       await fetch(
-        `${BASE_URL}lat=${coords?.latitude}&lon=${coords?.longitude}&appid=${apiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${coords?.latitude}&lon=${coords?.longitude}&appid=1662e45f71e7f241a4fd7c4eb94929ac&units=metric`
       ).then(async (response) => {
         if (!response.status) {
           throw new Error("Failed to fetch weather data.");
@@ -52,7 +50,7 @@ const WeatherWidget = ({ coords }: WeatherWidgetProps) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchWeather();
@@ -62,7 +60,7 @@ const WeatherWidget = ({ coords }: WeatherWidgetProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [fetchWeather]);
 
   return (
     <WeatherWrapper>

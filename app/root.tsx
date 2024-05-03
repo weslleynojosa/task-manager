@@ -2,7 +2,7 @@ import { Outlet } from "@remix-run/react";
 import Document from "~/components/document/Document";
 import User from "~/components/icons/user/User";
 import NavBar from "~/components/navbar/NavBar";
-import Widgets, {loader, action} from "~/routes/widgets";
+import Widgets, { loader, action } from "~/routes/widgets";
 import {
   Container,
   ContentWrapper,
@@ -23,7 +23,7 @@ export default function App() {
             <Container>
               <Outlet />
             </Container>
-            <Widgets/>
+            <Widgets />
           </Main>
         </ContentWrapper>
       </MainPage>
