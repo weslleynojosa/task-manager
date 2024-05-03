@@ -1,24 +1,28 @@
 import { Outlet } from "@remix-run/react";
 import Document from "~/components/document/Document";
-import styled from "@emotion/styled";
-
-export const Container = styled.div`
-    border-radius: 8px;
-    box-shadow: 0 2px 11px 0 #4f4f4f;
-    margin: 0 2rem;
-    overflow: hidden;
-    max-height: 80vh;
-`
+import User from "~/components/icons/user/User";
+import NavBar from "~/components/navbar/NavBar";
+import WeatherWidget from "~/components/widgets/weather/WeatherWidget";
+import {Container, ContentWrapper, Main, MainPage} from "~/theme/global.styles";
 
 export default function App() {
   return (
-      <Document title={"Task Manager"}>
-          <h1>TASKS</h1>
-          {/*TODO: NAVBAR, WIDGETS, wrap Outlet*/}
-          <Container>
-              <Outlet/>
-          </Container>
-          <footer>TEST</footer>
-      </Document>
+    <Document title={"Task Manager"}>
+      <MainPage>
+        <NavBar />
+          <ContentWrapper>
+              <User />
+              <Main>
+                  <Container>
+                      <Outlet />
+                  </Container>
+                  <WeatherWidget />
+                  <WeatherWidget />
+              </Main>
+          </ContentWrapper>
+      </MainPage>
+
+
+    </Document>
   );
 }

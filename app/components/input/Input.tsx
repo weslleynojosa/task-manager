@@ -13,13 +13,14 @@ const Input = forwardRef<Ref, PropTypes>(
       value,
       disabled,
       isTitle,
+        secondary,
       ...remainingProps
     },
     ref
   ) => {
     return (
       <Div className={className}>
-        <StyledLabel htmlFor={id} aria-label={ariaLabel} isTitle={isTitle}>
+        <StyledLabel htmlFor={id} aria-label={ariaLabel} isTitle={isTitle} secondary={secondary}>
           {label}
         </StyledLabel>
         <StyledInput
@@ -30,6 +31,7 @@ const Input = forwardRef<Ref, PropTypes>(
           value={value}
           disabled={disabled}
           isTitle={isTitle}
+          secondary={secondary}
           {...remainingProps}
         />
       </Div>

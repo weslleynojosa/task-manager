@@ -7,4 +7,6 @@ export type PropTypes = {
   /** Input label*/
   label?: React.ReactNode;
   isTitle?: boolean;
+  primary?: boolean;
+  secondary?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;

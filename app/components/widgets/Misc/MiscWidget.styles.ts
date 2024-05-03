@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
 import { black, darkBlue } from "~/theme/colors";
+import {Wrapper} from "~/theme/global.styles";
 
-export const Wrapper = styled.div`
-  display: flex;
+export const StyledWrapper = styled(Wrapper)`
   flex-direction: column;
-  border-radius: 0.8rem;
-  box-shadow: 1px 1px 4px 0 #4f4f4f;
   align-items: center;
   justify-content: center;
   padding: 1rem;
